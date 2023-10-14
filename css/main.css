@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #091f43;
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  color: white;
+  border-radius: 15px;
+}
+/* small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+h1 {
+  font-size: 35px;
+  text-transform: capitalize;
+  margin: 20px 0;
+}
+.form {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .form {
+    justify-content: center;
+  }
+  h1 {
+    text-align: center;
+  }
+}
+input,
+button {
+  height: 30px;
+  padding: 5px;
+  color: white;
+  font-size: 18px;
+}
+input {
+  margin-right: 20px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+}
+input::placeholder {
+  color: white;
+  text-transform: capitalize;
+}
+button {
+  border-radius: 5px;
+  background-color: #d8142f;
+  border: none;
+  width: 150px;
+  transform: translate(10px, 10px);
+  cursor: pointer;
+}
+.cards {
+  margin: 30px 0;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
+    justify-content: center;
+  }
+}
+.card {
+  min-height: 250px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 10px 10px 3px #87ceeb40;
+  transition: 0.5s;
+  color: initial;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+.head {
+  padding: 20px;
+  text-align: center;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+.head span {
+  color: #0b47a9;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.weather {
+  display: flex;
+  flex-direction: column;
+}
+.weather p {
+  padding: 5px;
+  font-size: 25px;
+  font-weight: 700;
+  position: relative;
+}
+p::before {
+  content: attr(data);
+  font-size: 22px;
+  text-transform: capitalize;
+  color: #0b47a9;
+}
+.weather p span {
+  font-size: 20px;
+  display: inline-block;
+  color: #444;
+}
+p.temperture span {
+  transform: translateY(-7px);
+  margin-left: 2px;
+}
+.state {
+  font-size: 25px;
+  font-weight: 700;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+#suggestions {
+  background: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  z-index: 10;
+  max-height: 150px;
+  overflow: hidden;
+  color: black;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+#suggestions li {
+  padding: 5px;
+  cursor: pointer;
+  margin: 2px 0;
+}
+
+#suggestions li:hover {
+  background-color: #e1e1e1;
+}
+
+.cards .card[data-weather="Clear"] {
+  background: linear-gradient(to right, #ffb347, #ffcc33);
+}
+
+/* For cloudy weather */
+.cards .card[data-weather="Clouds"] {
+  background: linear-gradient(to right, #b0c4de, #b0e0e6);
+}
+
+/* For rainy weather */
+.cards .card[data-weather="Rain"] {
+  background: linear-gradient(to right, #6495ed, #a9a9a9);
+}
